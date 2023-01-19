@@ -20,4 +20,6 @@ public class Targets : MonoBehaviour
             Instantiate(target, new Vector3(Random.RandomRange(-10f, 10f), 4f, Random.RandomRange(-10f, 10f)), new Quaternion(0,0,0,0), this.transform);
         }
     }
+   
+    
 }

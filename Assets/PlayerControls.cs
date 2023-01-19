@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour
 {
     [SerializeField] LayerMask ground;
     [SerializeField] Transform camera;
     [SerializeField] GameObject waterP;
+
+    [SerializeField] Text speedometer;
+    [SerializeField] Text power;
 
     Vector3 vertMov;
 
@@ -16,6 +20,8 @@ public class PlayerControls : MonoBehaviour
 
     float xRot;
     float yRot;
+
+    public float gPower = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +35,21 @@ public class PlayerControls : MonoBehaviour
 
         cameraMovement();
         waterGun();
+
+        if (Input.GetKey(KeyCode.Z))
+        {
+            gPower += 0.1f;
+
+        }
+
+        if (Input.GetKey(KeyCode.X))
+        {
+            gPower -= 0.1f;
+
+            gPower = Mathf.Clamp(gPower, 1, 2);
+
+        }
+
 
         //4 Directional Movement Code
         if (Input.GetKey(KeyCode.W))
@@ -89,7 +110,13 @@ public class PlayerControls : MonoBehaviour
         {
             this.GetComponent<Rigidbody>().velocity = mov + vert;
         }
-        
+
+        float speed = this.GetComponent<Rigidbody>().velocity.magnitude;
+        speedometer.text = "Speed : " + speed;
+
+        power.text = "Power : " + gPower;
+
+
     }
 
     public void cameraMovement()
