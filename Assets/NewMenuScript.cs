@@ -18,8 +18,7 @@ public class NewMenuScript : MonoBehaviour
     [SerializeField] RectTransform settingsTrans;
 
 
-    //[SerializeField] Transform trans;
-
+    //Come find me in GitHub
     // Start is called before the first frame update
     void Start()
     {
