@@ -12,7 +12,7 @@ namespace Program
         [SerializeField] Button settings;
         [SerializeField] Button demo;
         //[SerializeField] Transform trans;
-       
+
         // Start is called before the first frame update
         void Start()
         {
@@ -22,7 +22,7 @@ namespace Program
             demo.onClick.AddListener(goToDemo);
 
 
-    }
+        }
 
         // Update is called once per frame
         void Update()
